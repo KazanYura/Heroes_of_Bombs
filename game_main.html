@@ -3,6 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
+        body {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            background-color: green;
+        }
         #field {
             width: 500px;
             height: 500px;
@@ -12,24 +17,38 @@
             grid-template-rows: repeat(23,1fr);
         }
         .wall {
-            background-color: black;
+            background: url("images/field/hard_block.png") no-repeat;
         }
-        .hero {
-            background-color: red;
+        .knight {
+            background: url("images/heroes/knight.png") no-repeat center;
+        }
+        .mage {
+            background: url("images/heroes/mage.png") no-repeat center;
+        }
+        .elf {
+            background: url("images/heroes/elf.png") no-repeat center;
+        }
+        .warrior {
+            background: url("images/heroes/warrior.png") no-repeat center;
         }
         .block {
-            background-color: gray;
+            background: url("images/field/easy_block.png") no-repeat;
         }
         .explosion {
             background-color: darkorange;
         }
         .bomb {
-            background-color: green;
+            background: url("images/field/bomb.png") no-repeat;
+        }
+        .score {
+            background-color: gray;
         }
     </style>
 </head>
 <body onload="prepare()">
+<div class="score"></div>
 <div id="field"></div>
-<script src="game.js"></script>
+<div class="score"></div>
+<script src="src/game.js"></script>
 </body>
 </html>

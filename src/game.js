@@ -1,10 +1,11 @@
 class BasicHero{
 
-    constructor(id,keys){
+    constructor(id,name,keys){
         this.id = id;
         this.keys = keys;
         this.armed = true;
         this.bomb_power = 1;
+        this.name = name;
     }
     getPosition(){
         return [this.x,this.y];
@@ -22,7 +23,8 @@ class BasicHero{
         switch (button) {
             case this.keys[0]:
                 if (game_field[coords[0]][coords[1]+1].className === "") {
-                    game_field[coords[0]][coords[1] + 1].className = "hero";
+                    game_field[coords[0]][coords[1] + 1].className = this.name;
+
                     if (game_field[coords[0]][coords[1]].className === "bomb")
                     game_field[coords[0]][coords[1]].className = "bomb";
                     else
@@ -32,7 +34,7 @@ class BasicHero{
                 break;
             case this.keys[1]:
                 if (game_field[coords[0]][coords[1] - 1].className ==="") {
-                    game_field[coords[0]][coords[1] - 1].className = "hero";
+                    game_field[coords[0]][coords[1] - 1].className = this.name;
                     if (game_field[coords[0]][coords[1]].className === "bomb")
                         game_field[coords[0]][coords[1]].className = "bomb";
                     else
@@ -42,7 +44,7 @@ class BasicHero{
                 break;
             case this.keys[2]:
                 if (game_field[coords[0]-1][coords[1]].className === "") {
-                    game_field[coords[0] - 1][coords[1]].className = "hero";
+                    game_field[coords[0] - 1][coords[1]].className = this.name;
                     if (game_field[coords[0]][coords[1]].className === "bomb")
                         game_field[coords[0]][coords[1]].className = "bomb";
                     else
@@ -52,7 +54,7 @@ class BasicHero{
                 break;
             case this.keys[3]:
                 if (game_field[coords[0]+1][coords[1]].className === "") {
-                    game_field[coords[0] + 1][coords[1]].className = "hero";
+                    game_field[coords[0] + 1][coords[1]].className = this.name;
                     if (game_field[coords[0]][coords[1]].className === "bomb")
                         game_field[coords[0]][coords[1]].className = "bomb";
                     else
@@ -79,10 +81,18 @@ class BasicHero{
                 case "":
                     game_field[this.bomb_x - i][this.bomb_y].className = "explosion";
                     break;
-                case "hero":
-                    player_clean(this.id);
-                    game_field[this.bomb_x - i][this.bomb_y].className = "";
-                    this.keys= [];
+                case "warrior":
+                case "mage":
+                case "knight":
+                case "elf":
+                    for (let j = 0; j < hero_list.length; j++){
+                        let coords = hero_list[j].getPosition();
+                        if ((coords[0] === this.bomb_x-i) &&(coords[1] === this.bomb_y)) {
+                            player_clean(i);
+
+                        }
+                    }
+                    game_field[this.bomb_x-i][this.bomb_y].className = "";
                     break;
                 case "block":
                     game_field[this.bomb_x - i][this.bomb_y].className = "";
@@ -93,10 +103,19 @@ class BasicHero{
                 case "":
                     game_field[this.bomb_x][this.bomb_y-i].className = "explosion";
                     break;
-                case "hero":
-                    player_clean(this.id);
+                case "warrior":
+                case "mage":
+                case "knight":
+                case "elf":
+                    for (let j = 0; j < hero_list.length; j++){
+                        let coords = hero_list[j].getPosition();
+                        console.log(coords === [this.bomb_x,this.bomb_y-i]);
+                        if ((coords[0] === this.bomb_x) &&(coords[1] === this.bomb_y-i)) {
+                            player_clean(i);
+
+                        }
+                    }
                     game_field[this.bomb_x][this.bomb_y-i].className = "";
-                    this.keys= [];
                     break;
                 case "block":
                     game_field[this.bomb_x][this.bomb_y-i].className = "";
@@ -140,11 +159,11 @@ function prepare() {
                 new_block.className = "wall";
             }
             else if ((j===1) && (i===1)){
-                new_block.className = "hero";
+                new_block.className = hero.name;
                 hero.setPosition([i,j]);
             }
             else if ((j===21) && (i===21)){
-                new_block.className = "hero";
+                new_block.className = hero_2.name;
                 hero_2.setPosition([i,j]);
             }
             else if ((!n) && ((j > 3) || (i > 3))){
@@ -159,8 +178,8 @@ function prepare() {
 let field = document.getElementById("field");
 let game_field = [];
 let hero_list = [];
-let hero = new BasicHero(1,["d","a","w","s","k"]);
-let hero_2 = new BasicHero(2,["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","l"]);
+let hero = new BasicHero(1,"warrior",["d","a","w","s","k"]);
+let hero_2 = new BasicHero(2,"mage",["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","l"]);
 hero_list.push(hero);
 hero_list.push(hero_2);
 document.addEventListener("keydown",function () {
