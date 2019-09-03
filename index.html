@@ -5,12 +5,30 @@
     <title>Title</title>
     <link rel = "stylesheet"
           type = "text/css"
-          href = "style/main.css" />
+          href = "style/menu.css" />
 </head>
 
-<body>
-<div class = "right"></div>
-<div class="menu"></div>
-<div class="left"></div>
+<body onload="prepare()">
+<div class="menu">
+<div class="player">
+    <label class="name" id="name_1"></label>
+    <img class = "hero_selected" id = "player_1">
+    <img class = "ability" id = "ability_1">
+</div>
+    <div class="selection">
+        <img class = "hero_picture" id = 1>
+        <img class = "hero_picture" id = 2>
+        <img class = "hero_picture" id = 3>
+        <img class = "hero_picture" id = 4>
+    </div>
+    <div class="player">
+        <label class="name" id="name_2"></label>
+        <img class = "hero_selected" id = "player_2">
+        <img class = "ability" id="ability_2">
+    </div>
+</div>
+</div>
+
+<script src="src/intro.js"></script>
 </body>
 </html>

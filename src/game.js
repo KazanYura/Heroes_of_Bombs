@@ -204,8 +204,8 @@ class Warrior extends BasicHero{
             }, 4000);
             setTimeout(function () {
                 hero.ultimate_ready = true
-            }, 10000);
-            print_cooldown(10,this.id);
+            }, 23000);
+            print_cooldown(23,this.id);
         }
     }
 }
@@ -331,8 +331,8 @@ class Elf extends BasicHero {
                 this.ultimate_ready = false;
                 setTimeout(function () {
                     hero.ultimate_ready = true
-                }, 10000);
-                print_cooldown(10, this.id);
+                }, 8000);
+                print_cooldown(8, this.id);
             }
         }
     }
@@ -453,8 +453,38 @@ function prepare_hero(id,hero){
 let field = document.getElementById("field");
 let game_field = [];
 let hero_list = [];
-let hero = new Warrior(1,["d","a","w","s","j","k"]);
-let hero_2 = new Elf(2,["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","l","m"]);
+let url = document.URL;
+let splited_url = url.split("?");
+let hero_name_1 = splited_url[1];
+let hero_name_2 = splited_url[2];
+let hero;
+let hero_2;
+switch (hero_name_1) {
+    case "warrior":
+        hero = new Warrior(1,["d","a","w","s","o","p"]);
+        break;
+    case "elf":
+        hero = new Elf(1,["d","a","w","s","o","p"]);
+        break;
+    case "mage":
+        hero = new Mage(1,["d","a","w","s","o","p"]);
+        break;
+    case "dwarf":
+        hero = new Dwarf(1,["d","a","w","s","o","p"]);
+}
+switch (hero_name_2) {
+    case "warrior":
+        hero_2 = new Warrior(2,["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","k","l"]);
+        break;
+    case "elf":
+        hero_2 = new Elf(2,["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","k","l"]);
+        break;
+    case "mage":
+        hero_2 = new Mage(2,["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","k","l"]);
+        break;
+    case "dwarf":
+        hero_2 = new Dwarf(2,["ArrowRight","ArrowLeft","ArrowUp","ArrowDown","k","l"]);
+}
 hero_list.push(hero);
 hero_list.push(hero_2);
 prepare_hero(1,hero);
