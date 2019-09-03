@@ -1,0 +1,29 @@
+.score {
+    background-color: gray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.face{
+    height: 280px;
+    width: 200px;
+}
+.ability {
+    height: 75px;
+    width: 75px;
+    float: left;
+}
+.name {
+    font-size:30px;
+
+}
+.name:first-letter {
+    text-transform:capitalize;
+}
+.namespace {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.cooldown {
+    font-size :30px;
+    margin-left: 10px;
+}

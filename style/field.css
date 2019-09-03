@@ -1,0 +1,44 @@
+#field {
+    width: 500px;
+    height: 500px;
+    background-color: deepskyblue;
+    display: grid;
+    grid-template-columns: repeat(23,1fr);
+    grid-template-rows: repeat(23,1fr);
+}
+.wall {
+    background: url("../images/field/hard_block.png") no-repeat;
+}
+.knight {
+    background: url("../images/heroes/knight.png") no-repeat center;
+}
+.mage {
+    background: url("../images/heroes/mage.png") no-repeat center;
+}
+.elf {
+    background: url("../images/heroes/elf.png") no-repeat center;
+}
+.warrior {
+    background: url("../images/heroes/warrior.png") no-repeat center;
+}
+.block {
+    background: url("../images/field/easy_block.png") no-repeat;
+}
+.explosion {
+    background-color: darkorange;
+}
+.bomb {
+    background: url("../images/field/bomb.png") no-repeat;
+}
+.dwarf {
+    background: url("../images/heroes/dwarf.png") no-repeat center;
+}
+.arrow_ver {
+    background: url("../images/field/arrow_ver.png");
+}
+.arrow_hor {
+    background: url("../images/field/arrow_hor.png");
+}
+.warrior_rage {
+    background: url("../images/heroes/warrior_rage.png") no-repeat center;
+}
