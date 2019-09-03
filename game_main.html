@@ -2,53 +2,38 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <style>
-        body {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            background-color: green;
-        }
-        #field {
-            width: 500px;
-            height: 500px;
-            background-color: deepskyblue;
-            display: grid;
-            grid-template-columns: repeat(23,1fr);
-            grid-template-rows: repeat(23,1fr);
-        }
-        .wall {
-            background: url("images/field/hard_block.png") no-repeat;
-        }
-        .knight {
-            background: url("images/heroes/knight.png") no-repeat center;
-        }
-        .mage {
-            background: url("images/heroes/mage.png") no-repeat center;
-        }
-        .elf {
-            background: url("images/heroes/elf.png") no-repeat center;
-        }
-        .warrior {
-            background: url("images/heroes/warrior.png") no-repeat center;
-        }
-        .block {
-            background: url("images/field/easy_block.png") no-repeat;
-        }
-        .explosion {
-            background-color: darkorange;
-        }
-        .bomb {
-            background: url("images/field/bomb.png") no-repeat;
-        }
-        .score {
-            background-color: gray;
-        }
-    </style>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "style/main.css" />
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "style/field.css" />
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "style/player_field.css" />
 </head>
 <body onload="prepare()">
-<div class="score"></div>
+<div class="score">
+    <div class="namespace">
+    <label class ="name" id="name_1"><strong>Warrior</strong></label>
+        <div>
+        <img class="ability" id="ability_1" src="">
+        <label class="cooldown" id = 1>Ready</label>
+        </div>
+    </div>
+    <img class = "face" id="face_1" src="images/icons/warrior.jpg">
+</div>
 <div id="field"></div>
-<div class="score"></div>
+<div class="score">
+    <div class="namespace">
+        <label class ="name" id="name_2"><strong>Elf</strong></label>
+        <div>
+            <img class="ability" id="ability_2" src="images/icons/elf_skill.png" alt="Elf ability - power shot">
+            <label class="cooldown" id = 2>Ready</label>
+        </div>
+    </div>
+    <img class = "face" id="face_2" src="images/icons/elf.jpg" alt="Elf">
+</div>
 <script src="src/game.js"></script>
 </body>
 </html>
