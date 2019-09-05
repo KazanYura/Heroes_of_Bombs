@@ -1,0 +1,16 @@
+.victory_div {
+    width: 500px;
+    height: 500px;
+    background-color: deepskyblue;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+body{
+    background-color: green;
+
+}
+img {
+    height: 400px;
+    width: 500px;
+}
